@@ -18,10 +18,13 @@ student_status = input("Do you have a student ID(yes/no)\n")
 is_student = 'yes' in student_status.lower()
 order_time = int(input("When was the order made?\n"))
 
-is_large = original_price >= 150000
-large_discount = original_price*0.95*is_large
-print(large_discount, "Large discount")
+# print(large_discount, "Large discount")
 student_discount = original_price*0.85*is_student 
 happy_hour = order_time >= 14 and order_time <= 17
 main_discount = student_discount * (student_discount >= happy_hour) + happy_hour * (happy_hour > student_discount)
+print(original_price)
 print(main_discount, "Main discount")
+is_large = original_price >= 150000
+large_discount = original_price*0.95*is_large
+addition = original_price - (large_discount + main_discount)
+print(addition)
