@@ -1,6 +1,6 @@
-print("=== Museum Admission Calculator ===")
+print("\n=== Museum Admission Calculator ===")
 print("Enter exhibit type: general, special, or vip")
-print("Type 'done' when finished selecting exhibits")
+print("Type 'done' when finished selecting exhibits\n")
 counter = 0
 while True:
     ask = input("Enter exhibit type: ")
@@ -15,12 +15,13 @@ while True:
         print("Price: $20.00")
     else:
         break
-    print(f"Current total: ${counter:.2f}")
-print("=== Admission Summary ===")
-print(f"Subtotal: ${counter}")
+    print(f"Current total: ${counter:.2f}\n")
+print("\n=== Admission Summary ===")
+print(f"Subtotal: ${counter:.2f}")
 if counter >= 55.00:
     print("Group Visit Discount: -$8.00")
-    print(f"Final Total: ${counter - 8.00}")
+    print(f"Final Total: ${counter - 8.00:.2f}")
 else:
     print("Group Visit Discount: -$0.00")
     print(f"Final Total: ${counter:.2f}")
+print("Thank you for visiting!")
