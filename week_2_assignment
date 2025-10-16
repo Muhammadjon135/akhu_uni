@@ -1,0 +1,50 @@
+##Start
+first_dish = input("first dish name?\n")
+first_price = int(input("What is the price of the dish?\n"))
+how_many_first = int(input("How many meals?\n"))
+
+second_dish = input("second dish name?\n")
+second_price = int(input("What is the price of second the dish?\n"))
+how_many_second = int(input("How many meals?\n"))
+
+third_dish = input("third dish name?\n")
+third_price = int(input("What is the price of the third dish?\n"))
+how_many_third = int(input("How many meals?\n"))
+original_price = how_many_first*first_price + how_many_second*second_price + how_many_third*third_price
+## Customer info
+name = input("What is your name\n")
+student_status = input("Do you have a student ID(yes/no)\n")
+is_student = 'yes' in student_status
+order_time = int(input("When was the order made?\n"))
+hour_12 = (order_time % 12) or 12  
+suffix = "AM" * (order_time < 12) + "PM" * (order_time >= 12)
+time_converter = str(hour_12) + suffix
+student_discount = original_price*0.15*is_student 
+is_happy = order_time >= 14 and order_time <= 17
+happy_hour = original_price*0.2*is_happy
+is_large = original_price >= 150000
+main_discount = student_discount * (student_discount > happy_hour) + happy_hour*(happy_hour > student_discount)
+which_one = ("Student discount")*(student_discount > happy_hour) + ("Happy hour discount")*(happy_hour > student_discount) + ("None")*(happy_hour==student_discount)
+chosen = (student_discount > happy_hour) + (happy_hour > student_discount)
+large_discount = original_price*0.05* (original_price >= 150000)
+addition = original_price - (large_discount + main_discount)
+dis_amount = is_large + chosen
+service_fee = addition * 0.1
+is_delivery = (addition >= 100000)
+check_delivery = False == is_delivery
+delivery_fee = is_delivery*15000 + service_fee + addition
+
+print(f"\n\nName: {name}, Student statues: {is_student}, Order time: {time_converter}")
+print(f"First dish: {first_dish}\nSecond dish:{second_dish}\nThird dish:{third_dish}")
+print(f"Subtotal(before the discounts): {original_price}")
+print(f"Student discount eligibility: {is_student}, amount: {student_discount:.2f}")
+print(f"Happy hour eligibility: {is_happy}, amount: {happy_hour:.2f}")
+print(f"Which one was applied: {which_one}")
+print(f"Large order discount eligibility: {is_large}, amount: {large_discount:.2f}")
+print(f"Total discounts: {dis_amount}")
+print(f"Subtotal after all the discounts: {addition:.2f}")
+print(f"Service charge: {service_fee:.2f}")
+print(f"Delivery fee: 15000sum. Free delivery status: {check_delivery}")
+print(f"Final total: {delivery_fee}")
+print(f"Total saved: {main_discount + large_discount}")
+## Finish
