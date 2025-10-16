@@ -1,1 +1,26 @@
-
+print("=== Museum Admission Calculator ===")
+print("Enter exhibit type: general, special, or vip")
+print("Type 'done' when finished selecting exhibits")
+counter = 0
+while True:
+    ask = input("Enter exhibit type: ")
+    if ask == "general":
+        print("Price: $9.00")
+        counter = counter + 9.00
+    elif ask == "special":
+        counter = counter + 14.00
+        print("Price: $14.00")
+    elif ask == "vip":
+        counter = counter + 20.00
+        print("Price: $20.00")
+    else:
+        break
+    print(f"Current total: ${counter:.2f}")
+print("=== Admission Summary ===")
+print(f"Subtotal: ${counter}")
+if counter >= 55.00:
+    print("Group Visit Discount: -$8.00")
+    print(f"Final Total: ${counter - 8.00}")
+else:
+    print("Group Visit Discount: -$0.00")
+    print(f"Final Total: ${counter:.2f}")
