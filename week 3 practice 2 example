@@ -1,0 +1,31 @@
+print(f"STUDENT GRADE CALCULATOR")
+print(f"{"="*40}")
+def calculate_average(score1, score2, score3):
+    return (score1 + score2 + score3) / 3
+def drop_lowest(score1, score2, score3):
+    min_of_scores = min(score1, score2, score3)
+    avarage_of_highest = ((score1 + score2 + score3) - min_of_scores) / 2
+    return avarage_of_highest
+def calculate_weighted(assignments, midterm, final):
+    return assignments * 0.3 + midterm * 0.3 + final * 0.4
+def determine_grade(average):
+    if average > 89:
+        letter = "A"
+    elif average > 79:
+        letter = "B"
+    elif average > 69:
+        letter = "C"
+    elif average > 59:
+        letter = "D"
+    else:
+        letter = "F"
+    return letter
+def needs_improvement(current_avg, target_grade):
+    if target_grade == "A":
+        return current_avg < 89
+    elif target_grade == "B":
+        return current_avg < 79
+    elif target_grade == "C":
+        return current_avg < 69
+    elif target_grade == "D":
+        return current_avg < 59
