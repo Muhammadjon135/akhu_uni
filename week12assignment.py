@@ -16,7 +16,6 @@ def audit_energy_usage(filename):
             appliance, room, day_usage, night_usage = line.strip().split(",")
             try:
                 total_usage = float(day_usage) + float(night_usage)
-                # print(total_usage)
             except ValueError:
                 pass
             else:
