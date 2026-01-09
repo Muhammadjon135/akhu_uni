@@ -5,7 +5,6 @@ staff = [
 ]
 
 submitted = [101, 103, 500]
-invalid = []
 def create_staff_dict(staff_list):
     return {line['emp_id']: line['department'] for line in staff_list}
 
